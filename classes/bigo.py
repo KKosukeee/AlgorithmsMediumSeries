@@ -34,11 +34,11 @@ class BigO:
         elapsed_times = []
 
         # Loop config.how_many times
-        for _ in range(config.how_many):
+        for params in config.get_params():
 
             # Run the function with config.get_params
             start = time.time()
-            function(**config.get_params())
+            function(**params)
             end = time.time()
 
             # Store elapsed time into the list
