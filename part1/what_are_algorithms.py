@@ -1,6 +1,8 @@
 """
     All implementation code within what are algorithms section is in this file
 """
+import numpy as np
+from classes import BigO
 
 def main():
     """
@@ -9,7 +11,21 @@ def main():
     Returns:
 
     """
-    pass
+    naive_bigo = BigO()
+    optimal_bigo = BigO()
+
+    for i in range(1000):
+        data = np.random.randint(0, 10, size=i+1)
+        target = np.random.randint(0, i + 1)
+
+        # naive solution
+        naive_bigo.time_function(naive_approach, data=data, target=target)
+
+        # optimal solution
+        optimal_bigo.time_function(optimal_approach, data=data, target=target)
+
+    naive_bigo.to_plot()
+    optimal_bigo.to_plot()
 
 def naive_approach(data, target):
     """
@@ -25,14 +41,14 @@ def naive_approach(data, target):
     """
 
     # Loop through data
-    for i, x in enumerate(data):
+    for i, first_item in data:
 
         # Loop through data from index i + 1
-        for _, v in enumerate(data[i + 1:]):
+        for _, second_item in enumerate(data[i + 1:]):
 
             # If data[i] + data[j] == target, then return
-            if x + v == target:
-                return x, v
+            if first_item + second_item == target:
+                return first_item, second_item
 
     return -1, -1
 
@@ -50,18 +66,18 @@ def optimal_approach(data, target):
     """
 
     # Initialize comp dictionary
-    comp = {}
+    comp = set()
 
     # Loop through data
-    for _, x in enumerate(data):
+    for value in data:
 
         # If data[i] isn't in comp, then add
-        if x not in comp:
-            comp[target - comp] = x
+        if value not in comp:
+            comp.add(target - value)
 
         # Otherwise, you found the solution
         else:
-            return x, comp[x]
+            return value, target - value
 
     return -1, -1
 
