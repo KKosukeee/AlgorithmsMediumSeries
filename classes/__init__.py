@@ -3,4 +3,4 @@
     from classes import OBJECT
 """
 from classes.bigo import BigO
-from classes.callable_config import CallableConfig
+from classes.plotter import Plotter

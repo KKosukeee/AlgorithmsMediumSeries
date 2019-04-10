@@ -17,36 +17,33 @@ class BigO:
             Initialization method
         """
         self.complexity = None
+        self.elapsed_times = []
 
-    def approximate(self, function, config):
+    def approximate(self):
         """
-        Approximate function f with input of x. It will plot, but now showing it,
-        unless self.to_plot method is called
-
-        Args:
-            function: a callable object to approximate time complexity
-            config: CallableConfig object.
+        Finds the most similar function given x == range(1, len(self.elapsed_times)
+        and y = self.elapsed_times
 
         Returns:
 
         """
-        # Create a list to store elapsed time
-        elapsed_times = []
 
-        # Loop config.how_many times
-        for params in config.get_params():
 
-            # Run the function with config.get_params
-            start = time.time()
-            function(**params)
-            end = time.time()
+    def time_function(self, function, **kwargs):
+        """
+        Time how long it takes to run callable function given kwargs
 
-            # Store elapsed time into the list
-            elapsed_times.append(end - start)
+        Args:
+            function: a callable function where you call callable(**kwargs)
+            **kwargs: parameters for callable function.
 
-        # Plot run time complexity with x-axis being # of elements in the data
-        elapsed_times = np.array(elapsed_times)
-        plt.plot(np.arange(elapsed_times.size), elapsed_times)
+        Returns:
+
+        """
+        start = time.time()
+        function(**kwargs)
+        end = time.time()
+        self.elapsed_times.append(end - start)
 
     def to_plot(self):
         """
@@ -55,6 +52,7 @@ class BigO:
         Returns:
 
         """
+        plt.plot(np.arange(len(self.elapsed_times)), np.array(self.elapsed_times))
         plt.show()
 
     def to_png(self, path_obj):
@@ -67,4 +65,5 @@ class BigO:
         Raises:
 
         """
+        plt.plot(np.arange(len(self.elapsed_times)), np.array(self.elapsed_times))
         plt.savefig(str(path_obj))
