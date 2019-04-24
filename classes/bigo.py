@@ -2,22 +2,24 @@
     BigO object to approximate the run time complexity
 """
 import time
-from matplotlib import style
 import matplotlib.pyplot as plt
 import numpy as np
-style.use('ggplot')
 
 class BigO:
     """
         BigO object implementation
     """
 
-    def __init__(self):
+    def __init__(self, funcname):
         """
-            Initialization method
+        Initialization method
+        Args:
+            funcname: function name to be displayed
         """
         self.complexity = None
+        self.kernel_size = 9
         self.elapsed_times = []
+        self.funcname = funcname
 
     def approximate(self):
         """
@@ -52,8 +54,11 @@ class BigO:
         Returns:
 
         """
-        plt.plot(np.arange(len(self.elapsed_times)), np.array(self.elapsed_times))
-        plt.show()
+        kernel = np.ones(self.kernel_size) / float(self.kernel_size)
+        elapsed_times = np.array(self.elapsed_times)
+        smoothed = np.convolve(elapsed_times, kernel, mode='same')
+        plt.plot(np.arange(smoothed.size), smoothed, label=self.funcname)
+        plt.legend(facecolor='white')
 
     def to_png(self, path_obj):
         """
