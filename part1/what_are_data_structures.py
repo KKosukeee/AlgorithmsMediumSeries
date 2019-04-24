@@ -1,7 +1,9 @@
 """
     Part 1 of blog post contents are within this file
 """
-from classes import BigO, CallableConfig
+import numpy as np
+import matplotlib.pyplot as plt
+from classes import BigO, Plotter
 
 def main():
     """
@@ -12,15 +14,18 @@ def main():
     """
 
     # Implement constant time lookup
-    bigo = BigO()
-    config = CallableConfig(
-        [0, 1000],
-        data={'type': list, 'range': [0, 100]},
-        index={'type': int, 'range': [0, 100]}
-    )
+    array_lookup = BigO('Array lookup')
 
-    bigo.approximate(lookup, config)
-    bigo.to_plot()
+    plotter = Plotter()
+    plotter.add_object(array_lookup)
+
+    for i in range(1000):
+        data = np.random.randint(0, 1000, size=i+1)
+        index = np.random.randint(0, i) if i else 0
+        array_lookup.time_function(lookup, data=data.tolist(), index=index)
+
+    plt.ylim((1e-7 - 1e-5, 1e-7 + 1e-5))
+    plotter.to_plot()
 
 def lookup(data, index):
     """
@@ -37,6 +42,23 @@ def lookup(data, index):
         IndexError: if index is not in the range of 0 <= index < len(data)
     """
     return data[index]
+
+def insert(data, index, element):
+    """
+    Insertion operation for an array
+
+    Args:
+        data: list<int> object.
+        index: an index value to insert element
+        element: an element to insert at index
+
+    Returns:
+        list: list after the insertion
+
+    Raises:
+
+    """
+    return data.insert(index, element)
 
 if __name__ == '__main__':
     main()
