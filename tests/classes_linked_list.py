@@ -121,6 +121,15 @@ class TestLinkedList(TestCase):
         self.list.remove(self.third_node)
         self.assertIsNone(self.list.head)
 
+    def test_lookup(self):
+        """
+        Unit-test for lookup operation in LinkedList object
+        Returns:
+
+        """
+        for i in range(1, 4):
+            self.assertEqual(self.list.lookup(i), i)
+
     def tearDown(self):
         """
         Remove any files created by the unit-test

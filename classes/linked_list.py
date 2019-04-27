@@ -94,3 +94,22 @@ class LinkedList:
             current = current.next
 
         return current
+
+    def lookup(self, position):
+        """
+        Does the similar thing with indexing an array
+        Args:
+            position: position to lookup a value in a linked-list
+        Returns:
+            int: returns a value for nth node where n is specified with position argument
+        """
+        # Initialize counter as 1 because position starts from 1 to n
+        current = self.head
+        counter = 1
+
+        # Loop through the list until we reach to the position
+        while counter < position:
+            current = current.next
+            counter += 1
+
+        return current.value

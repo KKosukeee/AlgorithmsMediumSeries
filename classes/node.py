@@ -6,7 +6,6 @@ class Node:
     """
     Node class implementation
     """
-
     def __init__(self, value):
         """
         A value for this particular node
