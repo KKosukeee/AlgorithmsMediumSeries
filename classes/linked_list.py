@@ -31,19 +31,6 @@ class LinkedList:
             self.tail.next = node
             self.tail = node
 
-
-        # current = self.head
-        #
-        # # Loop until current.next is None (the end of the list)
-        # while current and current.next:
-        #     current = current.next
-        #
-        # if current:
-        #     # Assign input node at the last node's next
-        #     current.next = node
-        # else:
-        #     self.head = node
-
     def remove(self, node):
         """
         Removes a node from the linked-list
