@@ -13,6 +13,7 @@ class LinkedList:
             head: Node class. This node will be a head of the linked-list
         """
         self.head = head
+        self.tail = head
 
     def append(self, node):
         """
@@ -21,17 +22,27 @@ class LinkedList:
             node: Node object to append the end of the linked-list
         Returns:
         """
-        current = self.head
-
-        # Loop until current.next is None (the end of the list)
-        while current and current.next:
-            current = current.next
-
-        if current:
-            # Assign input node at the last node's next
-            current.next = node
-        else:
+        # If the head or the tail is None, then it must be an empty list
+        if not self.tail or not self.head:
             self.head = node
+            self.tail = node
+        # Otherwise, simply append to its tail which takes O(1)
+        else:
+            self.tail.next = node
+            self.tail = node
+
+
+        # current = self.head
+        #
+        # # Loop until current.next is None (the end of the list)
+        # while current and current.next:
+        #     current = current.next
+        #
+        # if current:
+        #     # Assign input node at the last node's next
+        #     current.next = node
+        # else:
+        #     self.head = node
 
     def remove(self, node):
         """
@@ -44,12 +55,20 @@ class LinkedList:
         if self.head == node:
             # Update head value as the input node
             self.head = self.head.next
+
+            # If self.head is None, then it means the list empty
+            if not self.head:
+                self.tail = None
         else:
             current = self.head
 
             # Loop until current node is previous to the input node
             while current and current.next != node:
                 current = current.next
+
+            # Update self.tail if the current.next is the one
+            if self.tail == node:
+                self.tail = current
 
             current.next = node.next
 
@@ -78,6 +97,10 @@ class LinkedList:
 
         # Assign new node's next to the current node
         node.next = current
+
+        # If current is None, then it means we are appending a node
+        if not current:
+            self.tail = node
 
     def search(self, value):
         """

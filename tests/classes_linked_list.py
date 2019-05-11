@@ -43,6 +43,9 @@ class TestLinkedList(TestCase):
             self.assertEqual(current.value, i)
             current = current.next
 
+        # Check if the tail element is the new_node
+        self.assertEqual(new_node.value, self.list.tail.value)
+
     def test_insert(self):
         """
         Unit-test for insert method in LinkedList class
@@ -55,6 +58,7 @@ class TestLinkedList(TestCase):
 
         # Check if correctly inserted or not
         self.assertEqual(self.list.head.value, new_node.value)
+        self.assertEqual(self.list.tail.value, self.third_node.value)
 
         # Insert in the middle of the list: 0->1->5->2->3
         new_node = Node(5)
@@ -63,9 +67,12 @@ class TestLinkedList(TestCase):
         # Check if correctly inserted or not
         self.assertEqual(self.list.head.next.next.value, new_node.value)
 
-        # Insert node as the tail of the list
+        # Insert node as the tail of the list: 0->1->5->2->3->9
         new_node = Node(9)
         self.list.insert(new_node, 6)
+
+        # Check if correctly inserted or not
+        self.assertEqual(self.list.tail.value, new_node.value)
 
         # Get temporary access to the list's head
         current = self.list.head
@@ -76,6 +83,7 @@ class TestLinkedList(TestCase):
 
         # Check if correctly inserted or not
         self.assertEqual(current.value, new_node.value)
+        self.assertEqual(current.value, self.list.tail.value)
 
     def test_search(self):
         """
@@ -112,14 +120,17 @@ class TestLinkedList(TestCase):
 
         # Check is list's head is updated properly
         self.assertEqual(self.list.head, self.second_node)
+        self.assertEqual(self.list.tail, self.third_node)
 
         # Remove the second node in the list: 3
         self.list.remove(self.second_node)
         self.assertEqual(self.list.head.value, self.third_node.value)
+        self.assertEqual(self.list.tail, self.third_node)
 
         # Remove the third node in the list, so the head should be None
         self.list.remove(self.third_node)
         self.assertIsNone(self.list.head)
+        self.assertIsNone(self.list.tail)
 
     def test_lookup(self):
         """
