@@ -6,7 +6,7 @@ class LinkedList:
     """
     LinkedList class implementation
     """
-    def __init__(self, head):
+    def __init__(self, head=None):
         """
         Head node of a new linked-list object
         Args:
