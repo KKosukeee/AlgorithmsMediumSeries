@@ -21,7 +21,6 @@ class Stack:
         This operation adds a node into a stack
         Args:
             node: Node class. The node is added on top of the stack in LIFO manner
-
         Returns:
 
         """
