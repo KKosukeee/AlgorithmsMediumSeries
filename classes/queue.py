@@ -16,16 +16,16 @@ class Queue:
         # Create a linked-list object with FIFO structure
         self.list = LinkedList(node)
 
-    def enqueue(self, element):
+    def enqueue(self, node):
         """
         This method will add an element into the queue
         Args:
-            element: Node object to add into the queue
+            node: Node object to add into the queue
         Returns:
 
         """
         # Append the element at the tail of the list
-        self.list.append_right(element)
+        self.list.append_right(node)
 
     def dequeue(self):
         """
