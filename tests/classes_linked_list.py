@@ -24,10 +24,10 @@ class TestLinkedList(TestCase):
         self.list = LinkedList(self.head_node)
 
         # Append nodes such that the list is: 1->2->3
-        self.list.append(self.second_node)
-        self.list.append(self.third_node)
+        self.list.append_right(self.second_node)
+        self.list.append_right(self.third_node)
 
-    def test_append(self):
+    def test_append_right(self):
         """
         Unit-test for append method in LinkedList class
         Returns:
@@ -36,7 +36,7 @@ class TestLinkedList(TestCase):
         # Append new node with value of 4 such that: 1->2->3->4
         current = self.list.head
         new_node = Node(4)
-        self.list.append(new_node)
+        self.list.append_right(new_node)
 
         # Check if all values are the same as 1 to 4
         for i in range(1, 5):
@@ -45,6 +45,27 @@ class TestLinkedList(TestCase):
 
         # Check if the tail element is the new_node
         self.assertEqual(new_node.value, self.list.tail.value)
+
+    def test_append_left(self):
+        """
+        Unit-test for appending an element as the new head of the
+        linked-list
+        Returns:
+
+        """
+        # Create potential head node
+        new_node = Node(0)
+
+        # Then call the function to set it as the head node
+        self.list.append_left(new_node)
+
+        # Create current node to traverse
+        current = self.list.head
+
+        # Traverse the list, then check the values
+        for i in range(4):
+            self.assertEqual(current.value, i)
+            current = current.next
 
     def test_insert(self):
         """

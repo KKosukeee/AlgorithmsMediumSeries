@@ -15,7 +15,7 @@ class LinkedList:
         self.head = head
         self.tail = head
 
-    def append(self, node):
+    def append_right(self, node):
         """
         This method will add a new element to the end of the linked-list
         Args:
@@ -30,6 +30,20 @@ class LinkedList:
         else:
             self.tail.next = node
             self.tail = node
+
+    def append_left(self, node):
+        """
+        This method will add a new element at the head of the list.
+        After this operation, input node is going to be the new head.
+        Args:
+            node: Node object to set as the new head.
+        Returns:
+        """
+        # Set input node's next as the previous head
+        node.next = self.head
+
+        # Then new head is set to the input node :D
+        self.head = node
 
     def remove(self, node):
         """
