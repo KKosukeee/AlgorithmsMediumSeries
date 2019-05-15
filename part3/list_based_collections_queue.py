@@ -89,8 +89,7 @@ def create_queue(size):
 
     for _ in range(size):
         # Enqueue an element with random value into the queue
-        node = Node(np.random.rand(0, 1000))
-        queue.enqueue(node)
+        queue.enqueue(Node(np.random.randint(0, 1000)))
 
     # Now return the queue
     return queue
