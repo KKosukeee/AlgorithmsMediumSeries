@@ -25,7 +25,7 @@ class Stack:
 
         """
         # This will add an element at the head of the linked-list
-        self.list.insert(node, 1)
+        self.list.append_left(node)
 
     def pop(self):
         """

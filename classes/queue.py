@@ -25,7 +25,7 @@ class Queue:
 
         """
         # Append the element at the tail of the list
-        self.list.append(element)
+        self.list.append_right(element)
 
     def dequeue(self):
         """
