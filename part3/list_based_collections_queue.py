@@ -39,7 +39,7 @@ def main():
         # Time peek function with a queue of size i.
         peek_op.time_function(peek_operaiton, queue=queue)
 
-    plt.ylim((1e-7 - 1e-5, 1e-7 + 1e-5))
+    plt.ylim((0, 3e-5))
     plotter.to_plot()
 
 def enqueue_operation(queue, node):
