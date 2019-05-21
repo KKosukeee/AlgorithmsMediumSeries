@@ -1,5 +1,5 @@
 """
-Unit-test for functions within what_are_algorithms.py file
+Unit-test for functions within part1_what_are_algorithms.py file
 """
 
 from unittest import TestCase
