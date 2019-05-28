@@ -5,7 +5,7 @@ This test contains a class for unit-testing the part5/recursions.py file
 from unittest import TestCase
 from part5.recursions import fibonacci
 
-class TestFibonacci(TestCase):
+class TestRecursions(TestCase):
     """
     TestFibonacci class to test fibonacci function in part5/recursions.py file
     """

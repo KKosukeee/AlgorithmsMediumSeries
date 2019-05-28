@@ -15,7 +15,6 @@ def fibonacci(n):
     Calculates the n-th fibonacci sequence
     Args:
         n: positive int value to calculate n-th fibonacci sequence
-
     Returns:
         int: representing the value of n-th fibonacci sequence
     """
