@@ -1,7 +1,6 @@
 ## README.md
 1.  [Part 1: What are Data Structures and
 Algorithms?](https://medium.com/@kousukekuzuoka/data-structure-and-algorithms-revisited-part-1-bffbcea48762)
-*
 2.  [Part 2: Most Widely Used Data Structures (Arrays and
 Linked-Lists)](https://medium.com/@kousukekuzuoka/data-structure-and-algorithms-revisited-part-2-96b42a58ecde)
 3.  [Part 3: Most Widely Used Data Structures (Stacks and
