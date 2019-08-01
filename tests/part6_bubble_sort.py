@@ -22,7 +22,7 @@ class TestBubbleSort(TestCase):
         for _ in range(10):
 
             # Create an unsorted array
-            unsorted_array = np.random.randint(0, 100, size=10)
+            unsorted_array = np.random.randint(0, 100, size=np.random.randint(100))
 
             # Compare the sorted array from bubble_sort function and the numpy function
             sorted_array = bubble_sort(unsorted_array.copy())
