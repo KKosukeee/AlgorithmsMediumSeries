@@ -56,7 +56,7 @@ def partition(array, low, high):
     This function partitions an array in memory, such that
 
     Args:
-        array(lit[int]): list of integers to partition with
+        array(list[int]): list of integers to partition with
         low(int): a pointer which points the left-most element that isn't in-place yet
         high(int): a pointer which points the right-most element that isn't in-place yet
 

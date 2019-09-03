@@ -56,7 +56,7 @@ class BigO:
         """
         kernel = np.ones(self.kernel_size) / float(self.kernel_size)
         elapsed_times = np.array(self.elapsed_times)
-        smoothed = np.convolve(elapsed_times, kernel, mode='same')
+        smoothed = np.convolve(elapsed_times, kernel, mode='valid')
         plt.plot(np.arange(smoothed.size), smoothed, label=self.funcname)
         plt.legend(facecolor='white')
 
